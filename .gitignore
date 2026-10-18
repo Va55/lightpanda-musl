@@ -1,0 +1,6 @@
+# Large build artifacts / release binaries are NOT tracked.
+# Binaries ship as GitHub Releases (they exceed GitHub's 100 MB per-file limit).
+/releases/
+/bin/
+zig-out/
+.zig-cache/
