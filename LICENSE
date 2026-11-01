@@ -1,6 +1,15 @@
+This repository contains two kinds of software under two different licenses.
+
+=====================================================================
+1. Original code in this repository (the shim and build recipe) — MIT
+=====================================================================
+
+This covers the files authored for this project: build/musl_glibc_shim.c,
+the build documentation, and this repository's original tooling.
+
 MIT License
 
-Copyright (c) 2026 lightpanda-musl contributors
+Copyright (c) 2026 lightpanda-static contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +28,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+=====================================================================
+2. The Lightpanda browser binaries in the GitHub Releases — AGPL-3.0
+=====================================================================
+
+The compiled binaries distributed via GitHub Releases derive from
+Lightpanda, copyright (c) Lightpanda (https://lightpanda.io),
+source: https://github.com/lightpanda-io/browser.
+Lightpanda is licensed under the GNU Affero General Public License v3.0
+(AGPL-3.0). These binaries are derivative works and are therefore made
+available to you under the GNU Affero General Public License v3.0, NOT the
+MIT license above.
+
+The corresponding source for these builds is the upstream Lightpanda
+repository together with the modifications in this repository
+(build/musl_glibc_shim.c and the build recipe in build/README.md). The full
+text of the GNU AGPL v3.0 can be found at:
+https://www.gnu.org/licenses/agpl-3.0.txt
+
+If you run a modified version of these binaries enabling remote network
+interaction with users, section 13 of the AGPL-3.0 requires that you offer
+the corresponding source to those users.

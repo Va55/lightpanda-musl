@@ -60,4 +60,10 @@ zig build -Dtarget=x86-linux-musl -Doptimize=ReleaseFast \
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+This repo is dual-licensed — see [LICENSE](LICENSE) for the exact split:
+
+- **Original code here** (the shim and build recipe) — **MIT**
+- **The Lightpanda binaries** in the GitHub Releases — **AGPL-3.0**,
+  a derivative of [lightpanda-io/browser](https://github.com/lightpanda-io/browser).
+  They are NOT MIT-licensed. Corresponding source = upstream Lightpanda plus the
+  modifications in this repo (see [build/README.md](build/README.md)).
