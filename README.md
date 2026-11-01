@@ -1,9 +1,9 @@
-# lightpanda-musl
+# lightpanda-static
 
-Native, **statically-linked, pure-musl** builds of [Lightpanda](https://lightpanda.io)
-(`1.1.0-dev`) for two architectures, plus the build recipe that produces them. No glibc
-anywhere at runtime — these run on any Linux regardless of libc (Alpine/musl,
-Debian/Ubuntu/glibc, …) because they are fully static.
+**Fully static** Lightpanda builds — pure-musl, and archiving **i386 (32-bit x86)** as well as
+x86_64. "static" is the point: no glibc (and no libc-loader) needed at runtime, so they run on
+any Linux regardless of distro (Alpine/musl, Debian/Ubuntu/glibc, distroless, …). The build
+recipe that produces them is included.
 
 Largest value is the **i386 (32-bit x86 / i686) port**: modern V8 engines dropped 32-bit support, but
 this repo proves a usable browser can still be hand-built for one. The capability
