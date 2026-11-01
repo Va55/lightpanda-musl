@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>lightpanda-static — fully static (pure-musl) Lightpanda builds for x86_64 &amp; i386</title>
+  <meta name="description" content="Fully static, pure-musl Lightpanda browser builds (x86_64 & i386/32-bit) with zero glibc at runtime — run on any Linux (Alpine, Debian, distroless). Includes the full build recipe and a V8 32-bit (i386/i686) port.">
+  <meta name="keywords" content="lightpanda, musl, static, static-linking, i386, i686, 32-bit, alpine, headless-browser, v8, zig, no-glibc, cross-compile">
+  <meta name="author" content="Va55">
+  <link rel="canonical" href="https://va55.github.io/lightpanda-static/">
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           max-width: 42rem; margin: 0 auto; padding: 1.5rem; line-height: 1.55; }
+    code { background: rgba(127,127,127,.15); padding: .1em .35em; border-radius: 4px; }
+    a { color: #0969da; } @media (prefers-color-scheme: dark) { a { color: #4493f8; } }
+    h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+    .badge { display:inline-block; padding:.15em .6em; border-radius:999px; font-size:.8em;
+             border:1px solid currentColor; margin-right:.35em; }
+    table { border-collapse: collapse; } td, th { border: 1px solid #8888; padding:.3rem .6rem; text-align:left; }
+  </style>
+</head>
+<body>
+  <h1>lightpanda-static</h1>
+  <p><span class="badge">fully static</span><span class="badge">pure-musl</span><span class="badge">x86_64</span><span class="badge">i386 / 32-bit</span></p>
+  <p><strong>Fully static Lightpanda builds</strong> for <strong>x86_64</strong> and the <strong>i386 (32-bit x86 / i686)</strong> port — zero glibc, no libc-loader needed at runtime. They run on <em>any</em> Linux regardless of distro: Alpine/musl, Debian/Ubuntu/glibc, distroless. A usable browser hand-built for the 32-bit world, plus the full build recipe.</p>
+
+  <h2>Download the binaries</h2>
+  <p>These are the GitHub Releases — statically linked musl, ELF, arch-per-binary:</p>
+  <table>
+    <tr><th>Asset</th><th>Arch</th><th>Size</th></tr>
+    <tr><td><a href="https://github.com/Va55/lightpanda-static/releases/download/v1.1.0-dev/lightpanda-1.1.0-dev-x86_64-musl">lightpanda-1.1.0-dev-x86_64-musl</a></td><td>x86_64</td><td>~199 MiB</td></tr>
+    <tr><td><a href="https://github.com/Va55/lightpanda-static/releases/download/v1.1.0-dev/lightpanda-1.1.0-dev-i686-musl">lightpanda-1.1.0-dev-i686-musl</a></td><td>i386 (32-bit)</td><td>~169 MiB</td></tr>
+  </table>
+  <p><small>Note: the 32-bit asset file is named <code>i686</code> (its real ISA floor — V8 needs CMOV/MMX); "i386" is the human-facing label for 32-bit x86, as Debian uses it.</small></p>
+
+  <h2>Install &amp; verify</h2>
+<pre><code>sudo install -m 0755 lightpanda-*-musl /usr/local/bin/lightpanda
+lightpanda version                  # Lightpanda 1.1.0-dev
+ldd /usr/local/bin/lightpanda       # "not a dynamic executable" (static)
+lightpanda fetch --dump semantic_tree_text https://example.com
+</code></pre>
+
+  <h2>What's here</h2>
+  <ul>
+    <li>Full <strong>build recipe</strong> — see <a href="https://github.com/Va55/lightpanda-static/blob/main/build/README.md">build/README.md</a>.</li>
+    <li><a href="https://github.com/Va55/lightpanda-static/blob/main/build/musl_glibc_shim.c">musl_glibc_shim.c</a> — a small glibc-symbol compat layer folded into the V8 archive so Lightpanda links pure-musl.</li>
+    <li><strong>i386 port</strong>: the capability toolchain carries directly to an i386 Chromium if it's ever needed.</li>
+  </ul>
+
+  <h2>Repo &amp; license</h2>
+  <p>Source: <a href="https://github.com/Va55/lightpanda-static">github.com/Va55/lightpanda-static</a></p>
+  <ul>
+    <li>Original code here (shim + build recipe) — <strong>MIT</strong>.</li>
+    <li>The Lightpanda binaries — <strong>AGPL-3.0</strong>, a derivative of <a href="https://github.com/lightpanda-io/browser">lightpanda-io/browser</a>. They are NOT MIT.</li>
+  </ul>
+</body>
+</html>
