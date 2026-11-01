@@ -67,3 +67,10 @@ This repo is dual-licensed — see [LICENSE](LICENSE) for the exact split:
   a derivative of [lightpanda-io/browser](https://github.com/lightpanda-io/browser).
   They are NOT MIT-licensed. Corresponding source = upstream Lightpanda plus the
   modifications in this repo (see [build/README.md](build/README.md)).
+
+## Related (same author, same 32-bit + musl stack)
+
+Pair this browser with the agent-provisioning kit for the same i386 machines:
+[Va55/hermes-i386](https://github.com/Va55/hermes-i386) runs **hermes-agent** on
+i386 (32-bit x86) Linux, Debian & Alpine — a static headless browser and a working
+agent on one i386 box.
