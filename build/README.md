@@ -1,6 +1,6 @@
-# Building native-musl Lightpanda (x86_64 and i686) — validated recipe
+# Building native-musl Lightpanda (x86_64 and i386) — validated recipe
 
-Produces fully static, pure-musl Lightpanda binaries for **x86_64** and **i686 (i386)**.
+Produces fully static, pure-musl Lightpanda binaries for **x86_64** and **i386 (32-bit x86 / i686)**.
 Verified to build and run with zero glibc on both 64-bit and 32-bit musl (Alpine) hosts.
 
 ## The critical discovery
@@ -68,7 +68,7 @@ zig build -Dtarget=x86_64-linux-musl -Doptimize=ReleaseFast \
 # -> browser/zig-out/bin/lightpanda (~208 MB, statically linked)
 ```
 
-### i686 (i386) — the real port
+### i386 (32-bit x86 / i686) — the real port
 
 The i386 build is a full port, not a flag. `-Dtarget=x86-linux-musl` alone silently builds
 an x86_64 V8 (the target never reaches V8's own compile; zig-v8-fork's GN args never set

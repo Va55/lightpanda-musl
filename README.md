@@ -5,7 +5,7 @@ Native, **statically-linked, pure-musl** builds of [Lightpanda](https://lightpan
 anywhere at runtime — these run on any Linux regardless of libc (Alpine/musl,
 Debian/Ubuntu/glibc, …) because they are fully static.
 
-Largest value is the **i686 (i386) port**: modern V8 engines dropped 32-bit support, but
+Largest value is the **i386 (32-bit x86 / i686) port**: modern V8 engines dropped 32-bit support, but
 this repo proves a usable browser can still be hand-built for one. The capability
 toolchain (`target_cpu=x86` V8 + compat shim + sysroot) carries directly to an i386
 Chromium should that ever be needed.
@@ -18,7 +18,12 @@ The binaries are too large to commit (GitHub's 100 MB/file limit), so they ship 
 | Asset | Arch | Size |
 |-------|------|------|
 | `lightpanda-1.1.0-dev-x86_64-musl` | x86_64 | ~208 MB |
-| `lightpanda-1.1.0-dev-i686-musl`   | i686 (Intel i386) | ~177 MB |
+| `lightpanda-1.1.0-dev-i686-musl`   | i386 (32-bit x86) | ~177 MB |
+
+> **Naming note:** the 32-bit asset file is named `i686` (its real ISA floor — V8 requires
+> CMOV/MMX, i.e. Pentium Pro). "i386" is the human-facing label: that is how Debian and the
+> ecosystem name 32-bit x86, and it's what the port is for. A true 80386/486 (no CMOV) cannot
+> run it — same situation as Debian's `i386` arch, which also requires i686 in practice.
 
 ## Install
 
